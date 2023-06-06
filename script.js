@@ -23,7 +23,7 @@ allNumbers.forEach((num, index) => {
         button.disabled = true;
     };
 
-    if ((index + 1) % 10 === 0) {
+    if ([20, 40, 60].includes(index)) { // Changes here
         buttonContainer.appendChild(document.createElement('br'));
     }
     
@@ -51,9 +51,9 @@ sortButton.onclick = () => {
             }
         });
 
-        topNumbers.innerText = topNumbersArray.join(", ");
-        mediumNumbers.innerText = mediumNumbersArray.join(", ");
-        regularNumbers.innerText = regularNumbersArray.join(", ");
+        topNumbers.innerText = topNumbersArray.join(",  ");
+        mediumNumbers.innerText = mediumNumbersArray.join(",  ");
+        regularNumbers.innerText = regularNumbersArray.join(",  ");
         
         // Reset the selected numbers and enable buttons
         selectedNumbers = [];
