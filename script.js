@@ -37,18 +37,23 @@ sortButton.onclick = () => {
         mediumNumbers.innerHTML = '';
         regularNumbers.innerHTML = '';
         
-        selectedNumbers.forEach(num => {
-            const selectedNumber = document.createElement('p');
-            selectedNumber.innerText = num;
-    
+        let topNumbersArray = [];
+        let mediumNumbersArray = [];
+        let regularNumbersArray = [];
+        
+        selectedNumbers.sort((a, b) => a - b).forEach(num => {
             if (topParent.has(num)) {
-                topNumbers.appendChild(selectedNumber);
+                topNumbersArray.push(num);
             } else if (mediumParent.has(num)) {
-                mediumNumbers.appendChild(selectedNumber);
+                mediumNumbersArray.push(num);
             } else if (regularParent.has(num)) {
-                regularNumbers.appendChild(selectedNumber);
+                regularNumbersArray.push(num);
             }
         });
+
+        topNumbers.innerText = topNumbersArray.join(", ");
+        mediumNumbers.innerText = mediumNumbersArray.join(", ");
+        regularNumbers.innerText = regularNumbersArray.join(", ");
         
         // Reset the selected numbers and enable buttons
         selectedNumbers = [];
