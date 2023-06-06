@@ -1,3 +1,13 @@
-button {
+#buttonContainer {
+    text-align: center;
+}
+
+#buttonContainer button {
     margin: 5px;
+}
+
+#topNumbers, #mediumNumbers, #regularNumbers {
+    margin-top: 10px;
+    white-space: nowrap; /* This will prevent the numbers from wrapping to the next line */
+    overflow-x: auto; /* This will add a horizontal scroll bar if the numbers extend beyond the width of the container */
 }
