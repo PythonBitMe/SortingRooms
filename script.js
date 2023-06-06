@@ -19,7 +19,7 @@ allNumbers.forEach((num, index) => {
     button.innerText = num;
     button.id = `button${num}`;
     button.onclick = () => {
-        selectedNumbers.push(num);
+        selectedNumbers.push(Number(button.innerText));
         button.disabled = true;
     };
 
