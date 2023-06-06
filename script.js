@@ -19,7 +19,7 @@ allNumbers.forEach((num, index) => {
     button.innerText = num;
     button.id = `button${num}`;
     button.onclick = () => {
-        selectedNumbers.push(Number(button.innerText));
+        selectedNumbers.push(num);
         button.disabled = true;
     };
 
@@ -36,13 +36,10 @@ sortButton.onclick = () => {
     mediumNumbers.innerHTML = '';
     regularNumbers.innerHTML = '';
     
-    // Sort the selected numbers and add them to the appropriate lists
-    selectedNumbers.sort((a, b) => a - b);
-    
     selectedNumbers.forEach(num => {
         const selectedNumber = document.createElement('p');
         selectedNumber.innerText = num;
-        
+
         if (topParent.has(num)) {
             topNumbers.appendChild(selectedNumber);
         } else if (mediumParent.has(num)) {
@@ -52,6 +49,9 @@ sortButton.onclick = () => {
         }
     });
     
-    // Reset the selected numbers
+    // Reset the selected numbers and enable buttons
     selectedNumbers = [];
+    allNumbers.forEach(num => {
+        document.getElementById(`button${num}`).disabled = false;
+    });
 };
