@@ -31,27 +31,29 @@ allNumbers.forEach((num, index) => {
 });
 
 sortButton.onclick = () => {
-    // Clear the previous sorted numbers
-    topNumbers.innerHTML = '';
-    mediumNumbers.innerHTML = '';
-    regularNumbers.innerHTML = '';
+    window.requestAnimationFrame(() => {
+        // Clear the previous sorted numbers
+        topNumbers.innerHTML = '';
+        mediumNumbers.innerHTML = '';
+        regularNumbers.innerHTML = '';
+        
+        selectedNumbers.forEach(num => {
+            const selectedNumber = document.createElement('p');
+            selectedNumber.innerText = num;
     
-    selectedNumbers.forEach(num => {
-        const selectedNumber = document.createElement('p');
-        selectedNumber.innerText = num;
-
-        if (topParent.has(num)) {
-            topNumbers.appendChild(selectedNumber);
-        } else if (mediumParent.has(num)) {
-            mediumNumbers.appendChild(selectedNumber);
-        } else if (regularParent.has(num)) {
-            regularNumbers.appendChild(selectedNumber);
-        }
-    });
-    
-    // Reset the selected numbers and enable buttons
-    selectedNumbers = [];
-    allNumbers.forEach(num => {
-        document.getElementById(`button${num}`).disabled = false;
+            if (topParent.has(num)) {
+                topNumbers.appendChild(selectedNumber);
+            } else if (mediumParent.has(num)) {
+                mediumNumbers.appendChild(selectedNumber);
+            } else if (regularParent.has(num)) {
+                regularNumbers.appendChild(selectedNumber);
+            }
+        });
+        
+        // Reset the selected numbers and enable buttons
+        selectedNumbers = [];
+        allNumbers.forEach(num => {
+            document.getElementById(`button${num}`).disabled = false;
+        });
     });
 };
