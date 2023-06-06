@@ -31,8 +31,14 @@ allNumbers.forEach((num, index) => {
 });
 
 sortButton.onclick = () => {
+    // Clear the previous sorted numbers
+    topNumbers.innerHTML = '';
+    mediumNumbers.innerHTML = '';
+    regularNumbers.innerHTML = '';
+    
+    // Sort the selected numbers and add them to the appropriate lists
     selectedNumbers.sort((a, b) => a - b);
-
+    
     selectedNumbers.forEach(num => {
         const selectedNumber = document.createElement('p');
         selectedNumber.innerText = num;
@@ -46,5 +52,6 @@ sortButton.onclick = () => {
         }
     });
     
+    // Reset the selected numbers
     selectedNumbers = [];
 };
